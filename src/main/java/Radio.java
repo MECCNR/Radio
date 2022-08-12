@@ -1,29 +1,32 @@
 public class Radio {
-    public int currentNumber;
-    public int currentVolume;
+    private int currentNumber;
+    private int currentVolume;
+
+    public int getCurrentNumber() {
+        return currentNumber;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
 
 
     public void next() {
-        if (currentNumber < 9) {
-            currentNumber = currentNumber + 1;
-        }
         if (currentNumber == 9) {
             currentNumber = 0;
+        }
+        else {
+            currentNumber = currentNumber + 1;
         }
         return;
     }
 
-    // код выше не выдерживает проверку на граничные значения, как и все остальные ниже
-    // потому-что после проверки первого условия сразу же проверяет другой
-    // ЗАТО ПО ТРЕБОВАНИЯМ ВСЁ СООТВЕТСТВУЕТ И ВСЕ 100% ПО ВЕТКАМ ОБЕСПЕЧЕНЫ!
-
-
     public void prev() {
-        if (currentNumber > 0) {
-            currentNumber = currentNumber - 1;
-        }
         if (currentNumber == 0) {
             currentNumber = 9;
+        }
+        else {
+            currentNumber = currentNumber - 1;
         }
         return;
     }
@@ -43,21 +46,21 @@ public class Radio {
     }
 
     public void plusVolume() {
-        if (currentVolume < 10) {
-            currentVolume = currentVolume + 1;
-        }
         if (currentVolume == 10) {
             currentVolume = 10;
+        }
+        else {
+            currentVolume = currentVolume + 1;
         }
         return;
     }
 
     public void minusVolume() {
-        if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
-        }
         if (currentVolume == 0) {
             currentVolume = 0;
+        }
+        else {
+            currentVolume = currentVolume - 1;
         }
         return;
     }
