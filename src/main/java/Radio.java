@@ -14,8 +14,7 @@ public class Radio {
     public void next() {
         if (currentNumber == 9) {
             currentNumber = 0;
-        }
-        else {
+        } else {
             currentNumber = currentNumber + 1;
         }
         return;
@@ -24,18 +23,17 @@ public class Radio {
     public void prev() {
         if (currentNumber == 0) {
             currentNumber = 9;
-        }
-        else {
+        } else {
             currentNumber = currentNumber - 1;
         }
         return;
     }
 
     public void setNumber(int newNumber) {
-        if(newNumber > 9) {
+        if (newNumber > 9) {
             return;
         }
-        if(newNumber < 0) {
+        if (newNumber < 0) {
             return;
         }
         currentNumber = newNumber;
@@ -48,8 +46,7 @@ public class Radio {
     public void plusVolume() {
         if (currentVolume == 10) {
             currentVolume = 10;
-        }
-        else {
+        } else {
             currentVolume = currentVolume + 1;
         }
         return;
@@ -58,8 +55,7 @@ public class Radio {
     public void minusVolume() {
         if (currentVolume == 0) {
             currentVolume = 0;
-        }
-        else {
+        } else {
             currentVolume = currentVolume - 1;
         }
         return;
