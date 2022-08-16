@@ -6,7 +6,7 @@ public class TestRadioNoParameters {
     @Test
     public void increaseNumber() {
         Radio radio = new Radio(1 );
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         radio.next();
         int expected = 2;
         int actual = radio.getCurrentNumber();
@@ -17,7 +17,7 @@ public class TestRadioNoParameters {
     @Test
     public void increaseNumberIfEqualsNine() {
         Radio radio = new Radio(10);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         radio.next();
         int expected = 0;
         int actual = radio.getCurrentNumber();
@@ -28,7 +28,7 @@ public class TestRadioNoParameters {
     @Test
     public void decreaseNumber() {
         Radio radio = new Radio(5);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         radio.prev();
         int expected = 4;
         int actual = radio.getCurrentNumber();
@@ -39,7 +39,7 @@ public class TestRadioNoParameters {
     @Test
     public void decreaseNumberIfZero() {
         Radio radio = new Radio(0);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         radio.prev();
         int expected = 10;
         int actual = radio.getCurrentNumber();
@@ -50,7 +50,7 @@ public class TestRadioNoParameters {
     @Test
     public void setNumber() {
         Radio radio = new Radio(1);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         int expected = 1;
         int actual = radio.getCurrentNumber();
 
@@ -60,7 +60,7 @@ public class TestRadioNoParameters {
     @Test
     public void setNumberMoreThanNine() {
         Radio radio = new Radio(12);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         int expected = 0;
         int actual = radio.getCurrentNumber();
 
@@ -70,7 +70,7 @@ public class TestRadioNoParameters {
     @Test
     public void setNumberLessThanZero() {
         Radio radio = new Radio(-1);
-        radio.setNumber(radio.getCurrentNumber());
+        radio.setCurrentNumber(radio.getCurrentNumber());
         int expected = 0;
         int actual = radio.getCurrentNumber();
 
@@ -80,7 +80,7 @@ public class TestRadioNoParameters {
     @Test
     public void increaseVolume() {
         Radio radio = new Radio(1);
-        radio.setVolume(1);
+        radio.setCurrentVolume(1);
         radio.plusVolume();
         int expected = 2;
         int actual = radio.getCurrentVolume();
@@ -91,7 +91,7 @@ public class TestRadioNoParameters {
     @Test
     public void increaseVolumeTen() {
         Radio radio = new Radio(1);
-        radio.setVolume(100);
+        radio.setCurrentVolume(100);
         radio.plusVolume();
         int expected = 100;
         int actual = radio.getCurrentVolume();
@@ -102,7 +102,7 @@ public class TestRadioNoParameters {
     @Test
     public void decreaseVolume() {
         Radio radio = new Radio(1);
-        radio.setVolume(5);
+        radio.setCurrentVolume(5);
         radio.minusVolume();
         int expected = 4;
         int actual = radio.getCurrentVolume();
@@ -113,7 +113,7 @@ public class TestRadioNoParameters {
     @Test
     public void decreaseVolumeZero() {
         Radio radio = new Radio(1);
-        radio.setVolume(0);
+        radio.setCurrentVolume(0);
         radio.minusVolume();
         int expected = 0;
         int actual = radio.getCurrentVolume();
