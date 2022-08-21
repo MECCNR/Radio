@@ -3,12 +3,12 @@ import org.junit.jupiter.api.Test;
 
 public class TestRadioNoParameters {
 
+
     @Test
     public void increaseNumber() {
-        Radio radio = new Radio(1 );
-        radio.setNumber(radio.getCurrentNumber());
+        Radio radio = new Radio();
         radio.next();
-        int expected = 2;
+        int expected = 1;
         int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -16,10 +16,9 @@ public class TestRadioNoParameters {
 
     @Test
     public void increaseNumberIfEqualsNine() {
-        Radio radio = new Radio(10);
-        radio.setNumber(radio.getCurrentNumber());
+        Radio radio = new Radio();
         radio.next();
-        int expected = 0;
+        int expected = 1;
         int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -27,19 +26,7 @@ public class TestRadioNoParameters {
 
     @Test
     public void decreaseNumber() {
-        Radio radio = new Radio(5);
-        radio.setNumber(radio.getCurrentNumber());
-        radio.prev();
-        int expected = 4;
-        int actual = radio.getCurrentNumber();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void decreaseNumberIfZero() {
-        Radio radio = new Radio(0);
-        radio.setNumber(radio.getCurrentNumber());
+        Radio radio = new Radio();
         radio.prev();
         int expected = 10;
         int actual = radio.getCurrentNumber();
@@ -48,38 +35,19 @@ public class TestRadioNoParameters {
     }
 
     @Test
-    public void setNumber() {
-        Radio radio = new Radio(1);
-        radio.setNumber(radio.getCurrentNumber());
-        int expected = 1;
+    public void decreaseNumberIfZero() {
+        Radio radio = new Radio();
+        radio.prev();
+        int expected = 10;
         int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void setNumberMoreThanNine() {
-        Radio radio = new Radio(12);
-        radio.setNumber(radio.getCurrentNumber());
-        int expected = 0;
-        int actual = radio.getCurrentNumber();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void setNumberLessThanZero() {
-        Radio radio = new Radio(-1);
-        radio.setNumber(radio.getCurrentNumber());
-        int expected = 0;
-        int actual = radio.getCurrentNumber();
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void increaseVolume() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio();
         radio.setVolume(1);
         radio.plusVolume();
         int expected = 2;
@@ -90,7 +58,7 @@ public class TestRadioNoParameters {
 
     @Test
     public void increaseVolumeTen() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio();
         radio.setVolume(100);
         radio.plusVolume();
         int expected = 100;
@@ -101,7 +69,7 @@ public class TestRadioNoParameters {
 
     @Test
     public void decreaseVolume() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio();
         radio.setVolume(5);
         radio.minusVolume();
         int expected = 4;
@@ -112,11 +80,41 @@ public class TestRadioNoParameters {
 
     @Test
     public void decreaseVolumeZero() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio();
         radio.setVolume(0);
         radio.minusVolume();
         int expected = 0;
         int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setNumber() {
+        Radio radio = new Radio();
+        radio.setNumber(1);
+        int expected = 1;
+        int actual = radio.getCurrentNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setNumberMoreThanNine() {
+        Radio radio = new Radio();
+        radio.setNumber(11);
+        int expected = 0;
+        int actual = radio.getCurrentNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setNumberLessThanZero() {
+        Radio radio = new Radio();
+        radio.setNumber(-1);
+        int expected = 0;
+        int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
     }
