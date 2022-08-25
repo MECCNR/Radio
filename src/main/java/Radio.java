@@ -1,65 +1,65 @@
 public class Radio {
-    private final int defaultStation = 10;
-    private int currentNumber;
+    private int defaultCount = 10;
+    private int currentStation;
     private int currentVolume;
-    private int currentStation = defaultStation;
+    private int stationsCount = defaultCount;
 
-    public Radio(int currentStation) {
-        this.currentStation = currentStation;
+    public Radio(int stations) {
+        this.stationsCount = stations;
     }
 
     public Radio() {
+    }
+
+    public int getCurrentCount() {
+        return stationsCount;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public int getCurrentNumber() {
-        return currentNumber;
-    }
-
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setNumber(int newNumber) {
-        if (newNumber > currentStation) {
-            currentNumber = 0;
+    public void setStation(int newNumber) {
+        if (newNumber > stationsCount) {
+            currentStation = 0;
             return;
         }
         if (newNumber < 0) {
-            currentNumber = 0;
+            currentStation = 0;
             return;
         }
-        currentNumber = newNumber;
+        currentStation = newNumber;
     }
 
 
     public void next() {
-        if (currentNumber == currentStation) {
-            currentNumber = 0;
+        if (currentStation == stationsCount) {
+            currentStation = 0;
         } else {
-            currentNumber = currentNumber + 1;
+            currentStation = currentStation + 1;
         }
         return;
     }
 
     public void prev() {
-        if (currentNumber == 0) {
-            currentNumber = currentStation;
+        if (currentStation == 0) {
+            currentStation = stationsCount;
         } else {
-            currentNumber = currentNumber - 1;
+            currentStation = currentStation - 1;
         }
         return;
     }
 
 
-    public void setStation(int newNumber) {
+    public void setCount(int newNumber) {
         if (newNumber < 0) {
             return;
         }
-        currentStation = newNumber;
+        stationsCount = newNumber;
     }
 
     public void setVolume(int newVolume) {
